@@ -38,3 +38,11 @@ def shortest_path(graph, start, goal):
         return None
 
 print("Shortest path: ",shortest_path(graph, 'A', 'F')) # ['A', 'C', 'F']
+
+'''
+Output :
+
+BFS:  {'A', 'F', 'B', 'E', 'D', 'C'}
+All possible paths:  [['A', 'C', 'F'], ['A', 'B', 'E', 'F']]
+Shortest path:  ['A', 'C', 'F']
+'''
