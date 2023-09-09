@@ -1,0 +1,52 @@
+using System;
+class prac1b{
+public static void Main(string [] args)
+{
+string fname,lname,name;
+Console.Write("Enter your first name: ");
+fname=Console.ReadLine();
+
+Console.Write("Enter your last name: ");
+lname=Console.ReadLine();
+
+//concatenate
+name=String.Concat(fname," ",lname);
+Console.WriteLine("Name: {0} ", name); 
+
+//Uppercase
+Console.WriteLine("Upper Case: {0} ", name.ToUpper()); 
+
+//Lowercase
+Console.WriteLine("Lower Case: {0} ", name.ToLower()); 
+
+//replace (toreplace,replacewith)
+Console.WriteLine("Replaced String: {0}", name.Replace(" ","-"));
+
+//STARSWITH AND ENDSWITH
+Console.WriteLine("Starts with n: {0}", name.StartsWith("n"));
+Console.WriteLine("Ends with r: {0}", name.EndsWith("r"));
+
+//INSERT
+Console.WriteLine("Inserting Hii at index 0: {0}", name.Insert(0,"Hii "));
+
+// CONTAINS
+Console.WriteLine("Does it 'nair': {0}", name.Contains("nair"));
+
+//JOIN 
+string[] array= {"hello","world"};
+Console.WriteLine("Joined string: {0}", String.Join(" ",array));
+}
+}
+
+Output:
+
+Enter your first name: nandana
+Enter your last name: nair
+Name: nandana nair 
+Upper Case: NANDANA NAIR 
+Lower Case: nandana nair 
+Replaced String: nandana-nair
+Starts with n: True
+Ends with r: TrueInserting Hii at index 0: Hii nandana nair
+Does it 'nair': True
+Joined string: hello world

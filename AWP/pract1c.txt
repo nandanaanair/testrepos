@@ -1,0 +1,80 @@
+using System;
+namespace ArrayOfStructs
+{
+ class Program
+ {
+ struct Student
+ {
+ public string studid, name, cname;
+ public int day, month, year;
+ }
+
+ static void Main(string[] args)
+ {
+ int num,i;
+ Student[] s = new Student[5];
+ Console.Write("Enter no of students: ");
+ num = Convert.ToInt32(Console.ReadLine());
+ for (i = 0; i < num; i++)
+ {
+ Console.Write("\nEnter Student Id:");
+ s[i].studid = Console.ReadLine();
+ Console.Write("Enter Student name : ");
+ s[i].name = Console.ReadLine();
+ Console.Write("Enter Course name : ");
+ s[i].cname = Console.ReadLine();
+ Console.Write("Enter date of birth\n Enter day(1-31):");
+ s[i].day = Convert.ToInt32(Console.ReadLine());
+ Console.Write("Enter month(1-12):");
+ s[i].month = Convert.ToInt32(Console.ReadLine());
+ Console.Write("Enter year:");
+ s[i].year = Convert.ToInt32(Console.ReadLine());
+ Console.WriteLine("----");
+ }
+ 
+ Console.WriteLine("Student's List\n");
+ for (i = 0; i < num; i++)
+ {
+ Console.WriteLine("Student ID : " + s[i].studid);
+ Console.WriteLine("Student name : " + s[i].name);
+ Console.WriteLine("Course name : " + s[i].cname);
+ Console.WriteLine("Date of birth(dd-mm-yy) : " + s[i].day + "-" + s[i].month +"-" + s[i].year);
+ Console.WriteLine("----");
+ } 
+     
+ } 
+ }  
+}
+
+
+Output:
+
+Enter no of students: 2
+Enter Student Id:01
+Enter Student name : nan
+Enter Course name : bscit
+Enter date of birth
+ Enter day(1-31):11
+ Enter month(1-12):06
+ Enter year:2003
+ ----
+Enter Student Id:02
+Enter Student name : sris
+Enter Course name : bscit
+Enter date of birth
+ Enter day(1-31):13
+ Enter month(1-12):03
+ Enter year:2003
+ ----
+Student's List
+
+Student ID : 01
+Student name : nan
+Course name : bscit
+Date of birth(dd-mm-yy) : 11-6-2003
+----
+Student ID : 02
+Student name : sris
+Course name : bscit
+Date of birth(dd-mm-yy) : 13-3-2003
+----
