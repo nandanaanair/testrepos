@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sample Website with jQuery Events</title>
+  <!-- Include jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <h1>Welcome to Sample Website with jQuery Events!</h1>
+  
+  <p>This is a sample paragraph.</p>
+  
+  <button id="colorButton">Change Text Color</button>
+  <button id="doubleClickButton">Double Click Me</button>
+  
+  <div id="hoverDiv" style="width: 200px; height: 100px; background-color: lightblue;">
+    Hover over this div
+  </div>
+
+  <form id="sampleForm">
+    <label for="inputText">Enter Text:</label>
+    <input type="text" id="inputText" />
+    <input type="submit" value="Submit" />
+  </form>
+
+  <select id="selectBox">
+    <option value="red">Red</option>
+    <option value="green">Green</option>
+    <option value="blue">Blue</option>
+  </select>
+
+  <p id="keydownResult">Press any key!</p>
+
+  <label for="textInput">Type Something:</label>
+  <input type="text" id="textInput" />
+
+  <p id="keydownResult">Keydown Event:</p>
+  <p id="keypressResult">Keypress Event:</p>
+  <p id="keyupResult">Keyup Event:</p>
+
+  <!-- Script section for jQuery events -->
+  <script>
+    // jQuery code to change text color when the button is clicked
+    $(document).ready(function() {
+      $("#colorButton").click(function() {
+        $("p").css("color", "red"); // Change the color of all <p> elements to red
+      });
+    });
+
+    // jQuery code to change the background color on double click
+    $(document).ready(function() {
+      $("#doubleClickButton").dblclick(function() {
+        $("body").css("background-color", "lightgray");
+      });
+    });
+
+    // jQuery code for mouseenter and mouseleave events
+    $(document).ready(function() {
+      $("#hoverDiv").mouseenter(function() {
+        $(this).text("Mouse is inside!");
+      });
+
+      $("#hoverDiv").mouseleave(function() {
+        $(this).text("Hover over this div");
+      });
+    });
+
+    // jQuery code to handle form submission
+    $(document).ready(function() {
+      $("#sampleForm").submit(function(event) {
+        event.preventDefault(); // Prevent form submission from reloading the page
+        var inputVal = $("#inputText").val();
+        alert("You entered: " + inputVal); // Display an alert with the input value
+        $("#inputText").val(""); // Clear the input field after submission
+      });
+    });
+
+    // jQuery code to change paragraph color based on select box value
+    $(document).ready(function() {
+      $("#selectBox").change(function() {
+        var selectedColor = $(this).val();
+        $("p").css("color", selectedColor);
+      });
+    });
+
+    // jQuery code to show the pressed key in the paragraph
+    $(document).ready(function() {
+      $(document).keydown(function(event) {
+        var keyPressed = String.fromCharCode(event.which);
+        $("#keydownResult").text("You pressed: " + keyPressed);
+      });
+    });
+      $(document).ready(function() {
+      $("#textInput").keydown(function(event) {
+        var keyName = event.key;
+        $("#keydownResult").text("Keydown Event: " + keyName);
+      });
+
+      $("#textInput").keypress(function(event) {
+        var keyName = event.key;
+        $("#keypressResult").text("Keypress Event: " + keyName);
+      });
+
+      $("#textInput").keyup(function(event) {
+        var keyName = event.key;
+        $("#keyupResult").text("Keyup Event: " + keyName);
+    });
+    });
+  </script>
+
+</body>
+</html>

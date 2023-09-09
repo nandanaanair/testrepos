@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>PRACTICE</title>
+    <style>
+      body{
+        background-color: rgb(214, 245, 201);
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js""></script>
+    <script> 
+    //hide
+    $(document).ready(function() {
+           $("#hide").click(function() {
+            $("p").hide();
+            });
+            
+          
+            //show
+           $("#show").click(function() {
+            $("p").show();
+            });
+          
+
+    // //alert
+    //         $(document).ready(function() {
+    //       $("div").click(function() {alert("Hello, world!");});
+    //     });
+
+
+        //click
+        $(".one").click(function() {
+            $("#yel").css("background-color","yellow");
+            });
+            
+
+//events
+
+//mouseenter
+$("#m1").mouseenter(function(){
+  alert("Heyyy!");
+});
+         
+   
+//mouseleave
+   $("#m1").mouseleave(function(){
+    alert("Byeee!");
+  });
+
+
+//focus,blur
+$("input").focus(function(){
+    $(this).css("background-color", "yellow");
+  });
+  $("input").blur(function(){
+    $(this).css("background-color", "white");
+  });
+
+
+
+//hoverd
+$("#m2").mouseover(function(){
+    alert("HOVERED!");
+  });
+
+
+
+//doublclick
+$("#dbl").dblclick(function(){
+         alert('Helloo againnn');
+      });
+   
+
+//fadein
+   $("#fadein").click(function(){
+    $("#div1").fadeIn("slow");
+     });
+
+
+//fadeout
+$("#fadeout").click(function(){
+    $("#div1").fadeOut("slow");
+  });
+
+
+//toggle
+$("#heading").click(function(){
+    $("#expandd").slideToggle("slow");
+  });
+
+
+//animate
+  $("#anim").click(function(){
+    var div = $("#anime");  
+    div.animate({left: '100px'}, "slow");
+    div.animate({fontSize: '20px'}, "slow");
+  });
+
+  //chaining
+  $("#clic").click(function(){
+    $("#p1").css("color", "red")
+      .slideUp(2000)
+      .slideDown(2000);
+  });
+
+  //callback
+  $("#cb").click(function(){
+    $("#cbb").hide("slow", function(){
+      alert("Successfully hidden");
+    });
+  });
+
+  //get set
+  
+  $("#btn1").click(function(){
+    alert("Text: " + $("#test").text());
+  });
+  $("#btn2").click(function(){
+    alert("HTML: " + $("#test").html());
+  });
+});
+
+
+ 
+    </script>
+<style> 
+  #expandd, #heading {
+    padding: 5px;
+    text-align: center;
+    background-color: #e7c2b1;
+    border: solid 1px #4b403b;
+
+  }
+  
+  #expandd {
+    padding: 80px;
+    display: none;
+  }
+  </style>
+    
+   
+     </head>
+     <body>
+        <h1 align="center">WELCOME</h1>
+     <!-- <div>Click for alert.</div> -->
+     <br>
+
+Name: <input type="text" name="fullname" id="even"><br>
+Email: <input type="text" name="email" id="even1">
+
+
+     <p id="yel">It will turn yellow !!!!</p>
+<p id="m1">Mouse enter function</p>
+<p id="m2">Mouse over function</p>
+<p id="dbl">Double click me!!!</p>
+
+
+     <button id="show"> SHOW </button>
+     <button id="hide"> HIDE </button>
+
+     <button class="one"> CLICK </button>
+<div>
+  <div></div>
+</div>
+
+<br><br><br>
+    <button id="fadein">Fade in box</button><br><br><button id="fadeout">Fade out box</button><br><br>
+
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:rgb(236, 174, 255);"></div><br>
+    
+    <div id="heading">CLICK TO EXPAND AND CONTRACT</div>
+    <div id="expandd">heylooo</div>
+    <br>
+    <button id="anim">Start Animation</button>
+    <br><br>
+    <div id="anime" style="background:#e7c2b1;height:30px;width: 100px;position:absolute;padding-left: 16px;padding-top: 16px;">HELLO</div>
+
+<br><br><br>
+<p id="p1">CHAINING</p>
+<button id="clic">Click</button>
+
+<br><br><br>
+<p id="cbb">CALLBACK</p>
+<button id="cb">Click</button>
+     
+     
+     <p id="getset">This is some <b>bold</b> text in a paragraph.</p>
+
+<button id="btn1">Show Text</button>
+<button id="btn2">Show HTML</button>
+
+</body>
+</html>

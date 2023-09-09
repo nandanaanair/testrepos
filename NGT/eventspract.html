@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Events</title>
+    <style>
+        h1{
+            text-align: center
+        }
+        #sh, 
+        #bgclr{
+            text-align: center
+        }
+        #hoverDiv{
+            text-align: center;
+            width: 100%; 
+            height: 50px; 
+            background-color: rgb(176, 193, 250);
+        }
+        body{
+        background-color: rgb(214, 245, 201);
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js""></script>
+
+    <body>
+    <h1>Website to try Events of Jquery.</h1>
+    <!-- <hr>
+    <div id="sh">
+    <button class="hide"> HIDE </button>
+    <button id="show"> SHOW </button>
+    <div>
+    <h3 id=hideshow> This text can be hidden if you click on HIDE button. </h3>
+    </div>
+    </div> -->
+    <hr>
+    <h3 id="hoverDiv">
+    Hover over this section!!
+    </h3>
+    <hr>
+    <form id="sub">
+    This form will focus on which it is clicked.<br><br>
+    First Name: <input type="text" name="firstname" id="even"><br><br>
+    Surname: <input type="text" name="surname" id="even1"><br><br>
+    <button id="subbb"></button>
+    </form>
+    <hr><br>
+    <div id="bgclr">
+    <button id="c">Click to remove bg color.</button>
+    <button id="dbc">Double click to bring back bg color.</button>
+    </div>
+    <br><hr>
+    <!-- Enter Name: <input id="t" type="text">
+    <p id="kp">Letter Pressed: </p>
+    <hr>
+    <p>The below text will change if you scroll.</p>
+    <p id="scr">Try scrolling the page!!</p> -->
+    <br><br><br><br><br>
+    </body>
+
+
+    <script> 
+        
+        $(document).ready(function() 
+        {
+                // //hide
+                // $(".hide").click(function() {
+                // $("#hideshow").hide();
+                // });
+                
+              
+                // //show
+                // $("#show").click(function() {
+                // $("#hideshow").show();
+                // });
+
+                //mouseenter
+                $("#hoverDiv").mouseenter(function() {
+                $(this).text("Your mouse is now inside the box!!");
+                });
+
+                //mouseleave
+                $("#hoverDiv").mouseleave(function() {
+                $(this).text("Hover over this section!!");
+                });
+
+                //focus
+                $("input").focus(function(){
+                $(this).css("background-color", "yellow");
+                });
+
+                //blur
+                $("input").blur(function(){
+                $(this).css("background-color", "white");
+                });
+
+                //click
+                $("#c").click(function() {
+                $("body").css("background-color", "white"); 
+                });
+
+                //doubleclick
+                $("#dbc").dblclick(function() {
+                $("body").css("background-color", "rgb(214, 245, 201)");
+                });
+
+                // //keypress
+                // $("#t").keypress(function(event) {
+                // var k = event.key;
+                // $("#kp").text("Keypress Event: " + k);
+                // });
+
+                // //scroll
+                // $(window).scroll(function() {
+                // $("#scr").text("The text changed!!!!");
+                // });
+
+                $("#sub").submit(function(){
+                alert("Form is submitted successfully.");
+                });
+
+                $("#buttonb").click(function() {
+                $("buttonb").css("background-color", "green"); 
+                });
+                
+        });
+        </script>
+
+</html>

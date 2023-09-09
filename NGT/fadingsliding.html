@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fading and Sliding Effects</title>
+  <!-- Include jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #fadee,#slidee {
+      width: 200px;
+      height: 100px;
+      background-color: rgb(192, 201, 255);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Fading and Sliding Effects Example</h1>
+
+  <button id="fout">Fade Out</button>
+  <button id="fin">Fade In</button>
+  <button id="sup">Slide Up</button>
+  <button id="sdown">Slide Down</button>
+<br><br>
+  <div id="fadee">Fade me out!!</div> <br>
+  <div id="slidee">Slide me up!!</div><br>
+
+  <!-- Script section for jQuery fading and sliding effects -->
+  <script>
+    $(document).ready(function() {
+      // Fading effect - Fade In
+      $("#fin").click(function() {
+        $("#fadee").fadeIn(1000); // 1000ms (1 second) duration
+      });
+
+      // Fading effect - Fade Out
+      $("#fout").click(function() {
+        $("#fadee").fadeOut(1000); // 1000ms (1 second) duration
+      });
+
+      // Sliding effect - Slide Down
+      $("#sdown").click(function() {
+        $("#slidee").slideDown(1000); // 1000ms (1 second) duration
+      });
+
+      // Sliding effect - Slide Up
+      $("#sup").click(function() {
+        $("#slidee").slideUp(1000); // 1000ms (1 second) duration
+      });
+    });
+  </script>
+
+</body>
+</html>

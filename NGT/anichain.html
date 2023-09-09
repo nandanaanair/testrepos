@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Animation and Chaining</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    #chain, #anim {
+      width: 200px;
+      height: 200px;
+      background-color: rgb(210, 236, 193);
+      margin: 10px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+
+  <button id="animb">ANIMATE</button>
+  <div id="anim">ANIMATE</div>
+
+  <button id="chainb">CHAINING</button>
+  <div id="chain">CHAINING</div>
+
+  <script>
+    $(document).ready(function() {
+      $("#chainb").click(function() {
+        $("#chain")
+        .slideUp(3000)
+        .slideDown(3000);
+      });
+      $("#animb").click(function() {
+        $("#anim").animate({ width: '500px', height: '200px', fontSize: '50px',}, 1000); 
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Get and Set Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h1>CALLBACK</h1>
+<p id="cbb">CALLBACK</p>
+<button id="cb">Click</button>
+
+  <h1>Get and Set</h1>
+  <p id="message">Initial content.</p>
+  <input type="text" id="inputField" placeholder="Set content: ">
+  <button id="setButton">Set Content</button> <br><br>
+  <button id="getButton">Get Content</button>
+
+  <script>
+    $(document).ready(function() {
+    $("#cb").click(function(){
+        $("#cbb").hide("1000", function(){
+        alert("Successfully hidden");
+        });
+    });
+      $("#getButton").click(function() {
+        var content = $("#message").text();
+        alert("content: " + content);
+      });
+
+      $("#setButton").click(function() {
+        var newContent = $("#inputField").val();
+        $("#message").text(newContent);
+      });
+    });
+  </script>
+
+</body>
+</html>

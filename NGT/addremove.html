@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add and Remove</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <h1>Add and Remove</h1>
+
+  <button id="addb">Add</button>
+  <button id="remb">Remove</button>
+
+  <ul id="listt">
+    <li>One</li>
+    <li>Two</li>
+    <li>Three</li>
+  </ul>
+
+  <!-- Script section for jQuery adding and removing elements -->
+  <script>
+    $(document).ready(function() {
+      
+      $("#addb").click(function() {
+        var newItem = $("<li>Added</li>");
+        $("#listt").append(newItem);
+      });
+
+      $("#remb").click(function() {
+        $("#listt").remove();
+      });
+    });
+  </script>
+
+</body>
+</html>
