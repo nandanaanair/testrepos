@@ -31,4 +31,11 @@ def shortest_path(graph,start,goal):
     except:
         return None
 print("Shortest path:",shortest_path(graph,'B','F'))
+
+
+Output :
+
+DFS:  {'D', 'B', 'E', 'C', 'F', 'A'}
+Possible paths:  [['A', 'B', 'E'], ['A', 'C', 'F', 'E']]
+Shortest path: ['B', 'E', 'F']
  
