@@ -18,7 +18,7 @@ namespace Practical1D
 
 
 
-      		int Selection = int.Parse( Console.ReadLine( ) );
+      		int Selection = Convert.ToInt32( Console.ReadLine( ) );
 
       	switch( Selection ) {
         case 0:
@@ -28,7 +28,7 @@ namespace Practical1D
         	int n1=0,n2=1,n3,i,number;    
 
          	Console.Write("Enter the number of elements: ");    
-         	number = int.Parse(Console.ReadLine());  
+         	number = Convert.ToInt32(Console.ReadLine());  
 
          	Console.Write(n1+" "+n2+" ");  
  
@@ -45,7 +45,7 @@ namespace Practical1D
         	 int n, r=0, flag=0; 
    
           	Console.Write("Enter the Number to check Prime: ");    
-          	n = int.Parse(Console.ReadLine());
+          	n = Convert.ToInt32(Console.ReadLine());
   
          	r=n/2;    
           	for(i=2;i<=r;i++)    
@@ -64,7 +64,7 @@ namespace Practical1D
         case 3:
         	char ch;
 	   	Console.WriteLine("Enter the Character:");
-		ch=char.Parse(Console.ReadLine());
+		ch=Convert.ToInt32(Console.ReadLine());
 		
 		if (ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
 		{
@@ -91,7 +91,7 @@ namespace Practical1D
         case 5:
             int reverse=0,sum=0, rem,rem1;           
             Console.Write("Enter a number: ");      
-            n= int.Parse(Console.ReadLine());     
+            n= Convert.ToInt32(Console.ReadLine());     
            while(n!=0)      
            {      
             rem=n%10;        
