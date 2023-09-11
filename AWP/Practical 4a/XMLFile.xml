@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>prosetech.jpg</ImageUrl>
+    <NavigateUrl>http://www.prosetech.com</NavigateUrl>
+    <AlternateText>ProseTech Site</AlternateText>
+    <Impressions>1</Impressions>
+    <Keyword>Computer</Keyword>
+  </Ad>
+</Advertisements>
