@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <form id="form1" runat="server">
+    <div>
+    
+            
+        <asp:Label ID="Label1" runat="server" Text="Header"></asp:Label>
+        <asp:TreeView ID="TreeView1" runat="server" 
+            DataSourceID="SiteMapDataSource1" Width="270px" />
+            
+            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
+
+             <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server" />
+
+        <asp:Label ID="Label2" runat="server" Text="Footer"></asp:Label>
+    </div>
+    </form>
+</body>
+</html>
