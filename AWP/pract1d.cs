@@ -62,11 +62,10 @@ namespace Practical1D
         break;
     
         case 3:
-        	char ch;
-	   	Console.WriteLine("Enter the Character:");
-		ch=Convert.ToInt32(Console.ReadLine());
+        	Console.WriteLine("Enter the Character:");
+		string ch=Console.ReadLine();
 		
-		if (ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+		if (ch=="a"|| ch=="e" || ch=="i" || ch=="o" || ch=="u")
 		{
 			Console.WriteLine("Is a vowel");
 		}
