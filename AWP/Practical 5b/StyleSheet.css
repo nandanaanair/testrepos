@@ -1,0 +1,19 @@
+﻿body            
+{
+    margin:auto;
+    width:1024px;
+    padding:10px;
+    background-color:Yellow;
+    font-size:30px;
+    font-family:Verdana;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:Gray;
+  color: white;
+  text-align: center;
+}
