@@ -1,0 +1,947 @@
+test> use eyeweardb
+switched to db eyeweardb
+eyeweardb> insert("name":"nandana")
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:13)
+
+> 1 | insert("name":"nandana")
+    |              ^
+  2 |
+
+eyeweardb> db.customer.insert({"name":"nandana"})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("651d7ac53d3d25e7a4e4d32b") }
+}
+eyeweardb> show dbs
+admin      40.00 KiB
+config     12.00 KiB
+eyeweardb   8.00 KiB
+local      72.00 KiB
+eyeweardb> db.customer.drop()
+true
+eyeweardb> show collection
+MongoshInvalidInputError: [COMMON-10001] 'collection' is not a valid argument for "show".
+eyeweardb> show collections
+
+eyeweardb> db.employee.insert([{"emp_id":100,"emp_fname":"Rahul","emp_lname":"Singh","emp_email":"rahulsingh123@gmail.com","emp_password":"rahul44","emp_phn":9865723894,"emp_gender":"Male","emp_dob":"11-02-1995","emp_hiredate":"14-08-2022","emp_salary":60000},
+... {"emp_id":101,"emp_fname":"Yash","emp_lname":"Shetty","emp_email":"yashshetty123@gmail.com","emp_password":"yashh44","emp_phn":9768246132,"emp_gender":"Male","emp_dob":"13-06-2003","emp_hiredate":"26-08-2023","emp_salary":40000},
+... {"emp_id":102,"emp_fname":"Aditya","emp_lname":"Kapoor","emp_email":"adityakapoor123@gmail.com","emp_password":"aditya44","emp_phn":9687348729,"emp_gender":"Male","emp_dob":"21-11-1993","emp_hiredate":"19-09-2022","emp_salary":80000},
+... {"emp_id":103,"emp_fname":"Seeta","emp_lname":"Mahalakshmi","emp_email":"seetam123@gmail.com","emp_password":"seeta44","emp_phn":9387624981,"emp_gender":"Female","emp_dob":"30-05-2000","emp_hiredate":"06-12-2019","emp_salary":80000},
+... {"emp_id":104,"emp_fname":"Dimple","emp_lname":"Cheema","emp_email":"dimple123@gmail.com","emp_password":"dimple44","emp_phn":9675842113,"emp_gender":"Female","emp_dob":"01-12-1999","emp_hiredate":"22-03-2022","emp_salary":60000}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("651d7bd53d3d25e7a4e4d32c"),
+    '1': ObjectId("651d7bd53d3d25e7a4e4d32d"),
+    '2': ObjectId("651d7bd53d3d25e7a4e4d32e"),
+    '3': ObjectId("651d7bd53d3d25e7a4e4d32f"),
+    '4': ObjectId("651d7bd53d3d25e7a4e4d330")
+  }
+}
+eyeweardb> show collections
+
+
+eyeweardb> db.employee.find().pretty()
+[
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32c"),
+    emp_id: 100,
+    emp_fname: 'Rahul',
+    emp_lname: 'Singh',
+    emp_email: 'rahulsingh123@gmail.com',
+    emp_password: 'rahul44',
+    emp_phn: 9865723894,
+    emp_gender: 'Male',
+    emp_dob: '11-02-1995',
+    emp_hiredate: '14-08-2022',
+    emp_salary: 60000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32d"),
+    emp_id: 101,
+    emp_fname: 'Yash',
+    emp_lname: 'Shetty',
+    emp_email: 'yashshetty123@gmail.com',
+    emp_password: 'yashh44',
+    emp_phn: 9768246132,
+    emp_gender: 'Male',
+    emp_dob: '13-06-2003',
+    emp_hiredate: '26-08-2023',
+    emp_salary: 40000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32e"),
+    emp_id: 102,
+    emp_fname: 'Aditya',
+    emp_lname: 'Kapoor',
+    emp_email: 'adityakapoor123@gmail.com',
+    emp_password: 'aditya44',
+    emp_phn: 9687348729,
+    emp_gender: 'Male',
+    emp_dob: '21-11-1993',
+    emp_hiredate: '19-09-2022',
+    emp_salary: 80000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32f"),
+    emp_id: 103,
+    emp_fname: 'Seeta',
+    emp_lname: 'Mahalakshmi',
+    emp_email: 'seetam123@gmail.com',
+    emp_password: 'seeta44',
+    emp_phn: 9387624981,
+    emp_gender: 'Female',
+    emp_dob: '30-05-2000',
+    emp_hiredate: '06-12-2019',
+    emp_salary: 80000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d330"),
+    emp_id: 104,
+    emp_fname: 'Dimple',
+    emp_lname: 'Cheema',
+    emp_email: 'dimple123@gmail.com',
+    emp_password: 'dimple44',
+    emp_phn: 9675842113,
+    emp_gender: 'Female',
+    emp_dob: '01-12-1999',
+    emp_hiredate: '22-03-2022',
+    emp_salary: 60000
+  }
+]
+eyeweardb> show collections
+employee
+eyeweardb> db.customer.insert([{"cust_id":1, "cust_fname":"Sristi", "cust_lname":"Shetty", "cust_email":"sristis123@gmail.com", "cust_password":"sristi44", "cust_phn":9762846135},
+... {"cust_id":1, "cust_fname":"Vandana", "cust_lname":"Padhi", "cust_email":"vandana123@gmail.com", "cust_password":"vandana44", "cust_phn":9687254831},
+... {"cust_id":1, "cust_fname":"Vaidehi", "cust_lname":"Kelkar", "cust_email":"vaidehik123@gmail.com", "cust_password":"vaidehi44", "cust_phn":9687541253},
+... {"cust_id":1, "cust_fname":"Akshada", "cust_lname":"Kadlak", "cust_email":"akshadak123@gmail.com", "cust_password":"akshada44", "cust_phn":9312587489},
+... {"cust_id":1, "cust_fname":"Samee", "cust_lname":"Kadam", "cust_email":"sameek123@gmail.com", "cust_password":"samee44", "cust_phn":9936574125}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("651d7c103d3d25e7a4e4d331"),
+    '1': ObjectId("651d7c103d3d25e7a4e4d332"),
+    '2': ObjectId("651d7c103d3d25e7a4e4d333"),
+    '3': ObjectId("651d7c103d3d25e7a4e4d334"),
+    '4': ObjectId("651d7c103d3d25e7a4e4d335")
+  }
+}
+eyeweardb> db.product.insert([{"prod_id":1000,"prod_name":"Hooper glasses","prod_description":"Hooper glasses is made with light weight frames and comfy nose pads.","prod_frametype":"Round","prod_category":"Eyeglasses","prod_price":"1700","prod_brand":"Hooper","prod_color":"black"},
+... {"prod_id":1001,"prod_name":"JJ half rim","prod_description":"John Jacobs screenglasses relieves eye strain and reduces headache by guaranting UV protection.","prod_frametype":"Half rim","prod_category":"Screenglasses","prod_price":"900","prod_brand":"John Jacobs","prod_color":"white"},
+... {"prod_id":1002,"prod_name":"VC sunglasses","prod_description":"Vincent chase sunglasses is made with corossion free stainless steel.","prod_frametype":"Rectangle","prod_category":"Sunglasses","prod_price":"550","prod_brand":"Vincent Chase","prod_color":"blue"},
+... {"prod_id":1000,"prod_name":"","prod_description":"","prod_frametype":"Round","prod_category":"Eyeglasses","prod_price":"1700","prod_brand":"","prod_color":"black"},
+... {"prod_id":1000,"prod_name":"","prod_description":"","prod_frametype":"Round","prod_category":"Eyeglasses","prod_price":"1700","prod_brand":"","prod_color":"black"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("651d7c1f3d3d25e7a4e4d336"),
+    '1': ObjectId("651d7c1f3d3d25e7a4e4d337"),
+    '2': ObjectId("651d7c1f3d3d25e7a4e4d338"),
+    '3': ObjectId("651d7c1f3d3d25e7a4e4d339"),
+    '4': ObjectId("651d7c1f3d3d25e7a4e4d33a")
+  }
+}
+eyeweardb> db.appointment.insert([{"apptmt_id":01,"apptmt_date":"27-08-2023","apptmt_time":"11:00am","apptmt_schedule":"completed","apptmt_loc":"Thane"},db.appointment.insert([{"apptmt_id":02,"apptmt_date":"02-09-2023","apptmt_time":"11:30am","apptmt_schedule":"scheduled","apptmt_loc":"Mumbai"},db.appointment.insert([{"apptmt_id":03,"apptmt_date":"05-09-2023","apptmt_time":"11:00am","apptmt_schedule":"scheduled","apptmt_loc":"Kalyan"}])
+
+
+eyeweardb> show collections
+customer
+employee
+product
+eyeweardb> db.appointment.insert([{"apptmt_id":01,"apptmt_date":"27-08-2023","apptmt_time":"11:00am","apptmt_schedule":"completed","apptmt_loc":"Thane"},
+... db.appointment.insert([{"apptmt_id":02,"apptmt_date":"02-09-2023","apptmt_time":"11:30am","apptmt_schedule":"scheduled","apptmt_loc":"Mumbai"},
+... db.appointment.insert([{"apptmt_id":03,"apptmt_date":"05-09-2023","apptmt_time":"11:00am","apptmt_schedule":"scheduled","apptmt_loc":"Kalyan"}])
+...
+...
+...
+eyeweardb> db.appointment.insert([{"apptmt_id":01,"apptmt_date":"27-08-2023","apptmt_time":"11:00am","apptmt_schedule":"completed","apptmt_loc":"Thane"},
+... db.appointment.insert([{"apptmt_id":02,"apptmt_date":"02-09-2023","apptmt_time":"11:30am","apptmt_schedule":"scheduled","apptmt_loc":"Mumbai"},
+... db.appointment.insert([{"apptmt_id":03,"apptmt_date":"05-09-2023","apptmt_time":"11:00am","apptmt_schedule":"scheduled","apptmt_loc":"Kalyan"}])
+...
+eyeweardb> db.appointment.insert({"apptmt_id":01,"apptmt_date":"27-08-2023","apptmt_time":"11:00am","apptmt_schedule":"completed","apptmt_loc":"Thane"})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("651d7c813d3d25e7a4e4d33b") }
+}
+eyeweardb> db.appointment.insert({"apptmt_id":02,"apptmt_date":"02-09-2023","apptmt_time":"11:30am","apptmt_schedule":"scheduled","apptmt_loc":"Mumbai"})
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("651d7ca03d3d25e7a4e4d33c") }
+}
+eyeweardb> db.appointment.insert([{"apptmt_id":03,"apptmt_date":"05-09-2023","apptmt_time":"11:00am","apptmt_schedule":"scheduled","apptmt_loc":"Kalyan"}])
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("651d7cad3d3d25e7a4e4d33d") }
+}
+eyeweardb> db.appointment.find().pretty()
+[
+  {
+    _id: ObjectId("651d7c813d3d25e7a4e4d33b"),
+    apptmt_id: 1,
+    apptmt_date: '27-08-2023',
+    apptmt_time: '11:00am',
+    apptmt_schedule: 'completed',
+    apptmt_loc: 'Thane'
+  },
+  {
+    _id: ObjectId("651d7ca03d3d25e7a4e4d33c"),
+    apptmt_id: 2,
+    apptmt_date: '02-09-2023',
+    apptmt_time: '11:30am',
+    apptmt_schedule: 'scheduled',
+    apptmt_loc: 'Mumbai'
+  },
+  {
+    _id: ObjectId("651d7cad3d3d25e7a4e4d33d"),
+    apptmt_id: 3,
+    apptmt_date: '05-09-2023',
+    apptmt_time: '11:00am',
+    apptmt_schedule: 'scheduled',
+    apptmt_loc: 'Kalyan'
+  }
+]
+eyeweardb> show collections
+appointment 40.00 KiB
+customer    92.00 KiB
+employeeb  192.00 KiB
+product     72.00 KiB
+eyeweardb> show dbs
+admin       40.00 KiB
+config      92.00 KiB
+eyeweardb  192.00 KiB
+local       72.00 KiB
+eyeweardb> db.product.aggregrate([{$group:{sum:{$sum:"prod_price"}}}])
+TypeError: db.product.aggregrate is not a function
+eyeweardb> db.product.aggregate([{$group:{sum:{$sum:"prod_price"}}}])
+MongoServerError: a group specification must include an _id
+eyeweardb> db.product.aggregate([{$group:{_id:"prod_id",sum:{$sum:"prod_price"}}}])
+[ { _id: 'prod_id', sum: 0 } ]
+eyeweardb> db.product.aggregate([{$group:{_id:"$prod_name",sum:{$sum:"$prod_price"}}}])
+[
+  { _id: '', sum: 0 },
+  { _id: 'VC sunglasses', sum: 0 },
+  { _id: 'JJ half rim', sum: 0 },
+  { _id: 'Hooper glasses', sum: 0 }
+]
+eyeweardb> db.product.aggregate([{$group:{_id:"$prod_name",sum:{$sum:"$prod_price"}}}])
+[
+  { _id: 'VC sunglasses', sum: 0 },
+  { _id: 'Hooper glasses', sum: 0 },
+  { _id: 'JJ half rim', sum: 0 },
+  { _id: '', sum: 0 }
+]
+eyeweardb> db.product.aggregate([{$group:{_id:"$prod_name",sum:{$sum:"$prod_price"}}}])
+[
+  { _id: 'Hooper glasses', sum: 0 },
+  { _id: 'VC sunglasses', sum: 0 },
+  { _id: '', sum: 0 },
+  { _id: 'JJ half rim', sum: 0 }
+]
+eyeweardb> db.product.aggregate([{$group:{_id:"$prod_name",sum:{$sum:"$prod_price"}}}])
+[
+  { _id: 'Hooper glasses', sum: 0 },
+  { _id: 'VC sunglasses', sum: 0 },
+  { _id: 'JJ half rim', sum: 0 },
+  { _id: '', sum: 0 }
+]
+eyeweardb> db.product.aggregate([{$group:{_id:"$prod_name",avg:{$avg:"$prod_price"}}}])
+[
+  { _id: '', avg: null },
+  { _id: 'VC sunglasses', avg: null },
+  { _id: 'JJ half rim', avg: null },
+  { _id: 'Hooper glasses', avg: null }
+]
+eyeweardb> db.product.aggregate([{$group:{_id:"$prod_name",min:{$min:"$prod_price"}}}])
+[
+  { _id: '', min: '1700' },
+  { _id: 'VC sunglasses', min: '550' },
+  { _id: 'JJ half rim', min: '900' },
+  { _id: 'Hooper glasses', min: '1700' }
+]
+eyeweardb> db.product.aggregate([{$group:{_id:"1000",min:{$min:"$prod_price"}}}])
+[ { _id: '1000', min: '1700' } ]
+eyeweardb> db.employee.find({"emp_salary":{"$lt":60000}})
+[
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32d"),
+    emp_id: 101,
+    emp_fname: 'Yash',
+    emp_lname: 'Shetty',
+    emp_email: 'yashshetty123@gmail.com',
+    emp_password: 'yashh44',
+    emp_phn: 9768246132,
+    emp_gender: 'Male',
+    emp_dob: '13-06-2003',
+    emp_hiredate: '26-08-2023',
+    emp_salary: 40000
+  }
+]
+eyeweardb> db.employee.find({"emp_salary":{"$lt":80000}})
+[
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32c"),
+    emp_id: 100,
+    emp_fname: 'Rahul',
+    emp_lname: 'Singh',
+    emp_email: 'rahulsingh123@gmail.com',
+    emp_password: 'rahul44',
+    emp_phn: 9865723894,
+    emp_gender: 'Male',
+    emp_dob: '11-02-1995',
+    emp_hiredate: '14-08-2022',
+    emp_salary: 60000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32d"),
+    emp_id: 101,
+    emp_fname: 'Yash',
+    emp_lname: 'Shetty',
+    emp_email: 'yashshetty123@gmail.com',
+    emp_password: 'yashh44',
+    emp_phn: 9768246132,
+    emp_gender: 'Male',
+    emp_dob: '13-06-2003',
+    emp_hiredate: '26-08-2023',
+    emp_salary: 40000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d330"),
+    emp_id: 104,
+    emp_fname: 'Dimple',
+    emp_lname: 'Cheema',
+    emp_email: 'dimple123@gmail.com',
+    emp_password: 'dimple44',
+    emp_phn: 9675842113,
+    emp_gender: 'Female',
+    emp_dob: '01-12-1999',
+    emp_hiredate: '22-03-2022',
+    emp_salary: 60000
+  }
+]
+eyeweardb> db.employee.find({"emp_salary":{"$lte":40000}})
+[
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32d"),
+    emp_id: 101,
+    emp_fname: 'Yash',
+    emp_lname: 'Shetty',
+    emp_email: 'yashshetty123@gmail.com',
+    emp_password: 'yashh44',
+    emp_phn: 9768246132,
+    emp_gender: 'Male',
+    emp_dob: '13-06-2003',
+    emp_hiredate: '26-08-2023',
+    emp_salary: 40000
+  }
+]
+eyeweardb> db.product.find({"prod_price":{"$gt":1000}})
+
+eyeweardb> db.product.find({"prod_price":{"$gt":10000}})
+
+eyeweardb> db.product.find({"prod_price":{"$gt":1000}})
+
+eyeweardb> db.product.find().pretty()
+[
+  {
+    _id: ObjectId("651d7c1f3d3d25e7a4e4d336"),
+    prod_id: 1000,
+    prod_name: 'Hooper glasses',
+    prod_description: 'Hooper glasses is made with light weight frames and comfy nose pads.',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: '1700',
+    prod_brand: 'Hooper',
+    prod_color: 'black'
+  },
+  {
+    _id: ObjectId("651d7c1f3d3d25e7a4e4d337"),
+    prod_id: 1001,
+    prod_name: 'JJ half rim',
+    prod_description: 'John Jacobs screenglasses relieves eye strain and reduces headache by guaranting UV protection.',
+    prod_frametype: 'Half rim',
+    prod_category: 'Screenglasses',
+    prod_price: '900',
+    prod_brand: 'John Jacobs',
+    prod_color: 'white'
+  },
+  {
+    _id: ObjectId("651d7c1f3d3d25e7a4e4d338"),
+    prod_id: 1002,
+    prod_name: 'VC sunglasses',
+    prod_description: 'Vincent chase sunglasses is made with corossion free stainless steel.',
+    prod_frametype: 'Rectangle',
+    prod_category: 'Sunglasses',
+    prod_price: '550',
+    prod_brand: 'Vincent Chase',
+    prod_color: 'blue'
+  },
+  {
+    _id: ObjectId("651d7c1f3d3d25e7a4e4d339"),
+    prod_id: 1000,
+    prod_name: '',
+    prod_description: '',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: '1700',
+    prod_brand: '',
+    prod_color: 'black'
+  },
+  {
+    _id: ObjectId("651d7c1f3d3d25e7a4e4d33a"),
+    prod_id: 1000,
+    prod_name: '',
+    prod_description: '',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: '1700',
+    prod_brand: '',
+    prod_color: 'black'
+  }
+]
+eyeweardb> db.product.find({"prod_price":{"$gt":1000}})
+
+eyeweardb> db.product.find({"prod_price":{"$gt":500}})
+
+eyeweardb> db.product.find({"prod_price":{"$lt":1000}})
+
+eyeweardb> db.employee.find({"emp_salary":{"$lte":40000}})
+[
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32d"),
+    emp_id: 101,
+    emp_fname: 'Yash',
+    emp_lname: 'Shetty',
+    emp_email: 'yashshetty123@gmail.com',
+    emp_password: 'yashh44',
+    emp_phn: 9768246132,
+    emp_gender: 'Male',
+    emp_dob: '13-06-2003',
+    emp_hiredate: '26-08-2023',
+    emp_salary: 40000
+  }
+]
+eyeweardb> db.product.find({"prod_price":{"$lt":1000}})
+
+eyeweardb> db.product.find({"prod_price":{"$gt":"1000"}})
+[
+  {
+    _id: ObjectId("651d7c1f3d3d25e7a4e4d336"),
+    prod_id: 1000,
+    prod_name: 'Hooper glasses',
+    prod_description: 'Hooper glasses is made with light weight frames and comfy nose pads.',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: '1700',
+    prod_brand: 'Hooper',
+    prod_color: 'black'
+  },
+  {
+    _id: ObjectId("651d7c1f3d3d25e7a4e4d337"),
+    prod_id: 1001,
+    prod_name: 'JJ half rim',
+    prod_description: 'John Jacobs screenglasses relieves eye strain and reduces headache by guaranting UV protection.',
+    prod_frametype: 'Half rim',
+    prod_category: 'Screenglasses',
+    prod_price: '900',
+    prod_brand: 'John Jacobs',
+    prod_color: 'white'
+  },
+  {
+    _id: ObjectId("651d7c1f3d3d25e7a4e4d338"),
+    prod_id: 1002,
+    prod_name: 'VC sunglasses',
+    prod_description: 'Vincent chase sunglasses is made with corossion free stainless steel.',
+    prod_frametype: 'Rectangle',
+    prod_category: 'Sunglasses',
+    prod_price: '550',
+    prod_brand: 'Vincent Chase',
+    prod_color: 'blue'
+  },
+  {
+    _id: ObjectId("651d7c1f3d3d25e7a4e4d339"),
+    prod_id: 1000,
+    prod_name: '',
+    prod_description: '',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: '1700',
+    prod_brand: '',
+    prod_color: 'black'
+  },
+  {
+    _id: ObjectId("651d7c1f3d3d25e7a4e4d33a"),
+    prod_id: 1000,
+    prod_name: '',
+    prod_description: '',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: '1700',
+    prod_brand: '',
+    prod_color: 'black'
+  }
+]
+eyeweardb> db.product.drop()
+true
+eyeweardb> db.product.insert([{"prod_id":1000,"prod_name":"Hooper glasses","prod_description":"Hooper glasses is made with light weight frames and comfy nose pads.","prod_frametype":"Round","prod_category":"Eyeglasses","prod_price":"1700","prod_brand":"Hooper","prod_color":"black"},
+... {"prod_id":1001,"prod_name":"JJ half rim","prod_description":"John Jacobs screenglasses relieves eye strain and reduces headache by guaranting UV protection.","prod_frametype":"Half rim","prod_category":"Screenglasses","prod_price":"900","prod_brand":"John Jacobs","prod_color":"white"},
+... {"prod_id":1002,"prod_name":"VC sunglasses","prod_description":"Vincent chase sunglasses is made with corossion free stainless steel.","prod_frametype":"Rectangle","prod_category":"Sunglasses","prod_price":"550","prod_brand":"Vincent Chase","prod_color":"blue"})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (3:261)
+
+  1 | db.product.insert([{"prod_id":1000,"prod_name":"Hooper glasses","prod_description":"Hooper glasses is made with light weight frames and comfy nose pads.","prod_frametype":"Round","prod_category":"Eyeglasses","prod_price":"1700","prod_brand":"Hooper","prod_color":"black"},
+  2 | {"prod_id":1001,"prod_name":"JJ half rim","prod_description":"John Jacobs screenglasses relieves eye strain and reduces headache by guaranting UV protection.","prod_frametype":"Half rim","prod_category":"Screenglasses","prod_price":"900","prod_brand":"John Jacobs","prod_color":"white"},
+> 3 | {"prod_id":1002,"prod_name":"VC sunglasses","prod_description":"Vincent chase sunglasses is made with corossion free stainless steel.","prod_frametype":"Rectangle","prod_category":"Sunglasses","prod_price":"550","prod_brand":"Vincent Chase","prod_color":"blue"})
+    |                                                                                                                                                                                                                                                                      ^
+  4 |
+
+eyeweardb> db.product.insert([{"prod_id":1000,"prod_name":"Hooper glasses","prod_description":"Hooper glasses is made with light weight frames and comfy nose pads.","prod_frametype":"Round","prod_category":"Eyeglasses","prod_price":"1700","prod_brand":"Hooper","prod_color":"black"},
+... {"prod_id":1001,"prod_name":"JJ half rim","prod_description":"John Jacobs screenglasses relieves eye strain and reduces headache by guaranting UV protection.","prod_frametype":"Half rim","prod_category":"Screenglasses","prod_price":"900","prod_brand":"John Jacobs","prod_color":"white"},
+... {"prod_id":1002,"prod_name":"VC sunglasses","prod_description":"Vincent chase sunglasses is made with corossion free stainless steel.","prod_frametype":"Rectangle","prod_category":"Sunglasses","prod_price":"550","prod_brand":"Vincent Chase","prod_color":"blue"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("651d83143d3d25e7a4e4d33e"),
+    '1': ObjectId("651d83143d3d25e7a4e4d33f"),
+    '2': ObjectId("651d83143d3d25e7a4e4d340")
+  }
+}
+eyeweardb> db.product.update({"prod_id":1000},{$set:{"prod_price":1700}})
+DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+eyeweardb> db.product.find().pretty()
+[
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d33e"),
+    prod_id: 1000,
+    prod_name: 'Hooper glasses',
+    prod_description: 'Hooper glasses is made with light weight frames and comfy nose pads.',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: 1700,
+    prod_brand: 'Hooper',
+    prod_color: 'black'
+  },
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d33f"),
+    prod_id: 1001,
+    prod_name: 'JJ half rim',
+    prod_description: 'John Jacobs screenglasses relieves eye strain and reduces headache by guaranting UV protection.',
+    prod_frametype: 'Half rim',
+    prod_category: 'Screenglasses',
+    prod_price: '900',
+    prod_brand: 'John Jacobs',
+    prod_color: 'white'
+  },
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d340"),
+    prod_id: 1002,
+    prod_name: 'VC sunglasses',
+    prod_description: 'Vincent chase sunglasses is made with corossion free stainless steel.',
+    prod_frametype: 'Rectangle',
+    prod_category: 'Sunglasses',
+    prod_price: '550',
+    prod_brand: 'Vincent Chase',
+    prod_color: 'blue'
+  }
+]
+eyeweardb> db.product.update({"prod_id":1001},{$set:{"prod_price":900}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+eyeweardb> db.product.update({"prod_id":1002},{$set:{"prod_price":550}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+eyeweardb> db.product.find().pretty()
+[
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d33e"),
+    prod_id: 1000,
+    prod_name: 'Hooper glasses',
+    prod_description: 'Hooper glasses is made with light weight frames and comfy nose pads.',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: 1700,
+    prod_brand: 'Hooper',
+    prod_color: 'black'
+  },
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d33f"),
+    prod_id: 1001,
+    prod_name: 'JJ half rim',
+    prod_description: 'John Jacobs screenglasses relieves eye strain and reduces headache by guaranting UV protection.',
+    prod_frametype: 'Half rim',
+    prod_category: 'Screenglasses',
+    prod_price: 900,
+    prod_brand: 'John Jacobs',
+    prod_color: 'white'
+  },
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d340"),
+    prod_id: 1002,
+    prod_name: 'VC sunglasses',
+    prod_description: 'Vincent chase sunglasses is made with corossion free stainless steel.',
+    prod_frametype: 'Rectangle',
+    prod_category: 'Sunglasses',
+    prod_price: 550,
+    prod_brand: 'Vincent Chase',
+    prod_color: 'blue'
+  }
+]
+eyeweardb> db.product.find({"prod_price":{"$gt":"1000"}})
+
+eyeweardb> db.product.find({"prod_price":{"$gt":500}})
+[
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d33e"),
+    prod_id: 1000,
+    prod_name: 'Hooper glasses',
+    prod_description: 'Hooper glasses is made with light weight frames and comfy nose pads.',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: 1700,
+    prod_brand: 'Hooper',
+    prod_color: 'black'
+  },
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d33f"),
+    prod_id: 1001,
+    prod_name: 'JJ half rim',
+    prod_description: 'John Jacobs screenglasses relieves eye strain and reduces headache by guaranting UV protection.',
+    prod_frametype: 'Half rim',
+    prod_category: 'Screenglasses',
+    prod_price: 900,
+    prod_brand: 'John Jacobs',
+    prod_color: 'white'
+  },
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d340"),
+    prod_id: 1002,
+    prod_name: 'VC sunglasses',
+    prod_description: 'Vincent chase sunglasses is made with corossion free stainless steel.',
+    prod_frametype: 'Rectangle',
+    prod_category: 'Sunglasses',
+    prod_price: 550,
+    prod_brand: 'Vincent Chase',
+    prod_color: 'blue'
+  }
+]
+eyeweardb> db.product.find({"prod_price":{"$gt":1000}})
+[
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d33e"),
+    prod_id: 1000,
+    prod_name: 'Hooper glasses',
+    prod_description: 'Hooper glasses is made with light weight frames and comfy nose pads.',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: 1700,
+    prod_brand: 'Hooper',
+    prod_color: 'black'
+  }
+]
+eyeweardb> db.product.find({"prod_price":{"$gte":700}})
+[
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d33e"),
+    prod_id: 1000,
+    prod_name: 'Hooper glasses',
+    prod_description: 'Hooper glasses is made with light weight frames and comfy nose pads.',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: 1700,
+    prod_brand: 'Hooper',
+    prod_color: 'black'
+  },
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d33f"),
+    prod_id: 1001,
+    prod_name: 'JJ half rim',
+    prod_description: 'John Jacobs screenglasses relieves eye strain and reduces headache by guaranting UV protection.',
+    prod_frametype: 'Half rim',
+    prod_category: 'Screenglasses',
+    prod_price: 900,
+    prod_brand: 'John Jacobs',
+    prod_color: 'white'
+  }
+]
+eyeweardb> db.customer.find().pretty()
+[
+  {
+    _id: ObjectId("651d7c103d3d25e7a4e4d331"),
+    cust_id: 1,
+    cust_fname: 'Sristi',
+    cust_lname: 'Shetty',
+    cust_email: 'sristis123@gmail.com',
+    cust_password: 'sristi44',
+    cust_phn: 9762846135
+  },
+  {
+    _id: ObjectId("651d7c103d3d25e7a4e4d332"),
+    cust_id: 1,
+    cust_fname: 'Vandana',
+    cust_lname: 'Padhi',
+    cust_email: 'vandana123@gmail.com',
+    cust_password: 'vandana44',
+    cust_phn: 9687254831
+  },
+  {
+    _id: ObjectId("651d7c103d3d25e7a4e4d333"),
+    cust_id: 1,
+    cust_fname: 'Vaidehi',
+    cust_lname: 'Kelkar',
+    cust_email: 'vaidehik123@gmail.com',
+    cust_password: 'vaidehi44',
+    cust_phn: 9687541253
+  },
+  {
+    _id: ObjectId("651d7c103d3d25e7a4e4d334"),
+    cust_id: 1,
+    cust_fname: 'Akshada',
+    cust_lname: 'Kadlak',
+    cust_email: 'akshadak123@gmail.com',
+    cust_password: 'akshada44',
+    cust_phn: 9312587489
+  },
+  {
+    _id: ObjectId("651d7c103d3d25e7a4e4d335"),
+    cust_id: 1,
+    cust_fname: 'Samee',
+    cust_lname: 'Kadam',
+    cust_email: 'sameek123@gmail.com',
+    cust_password: 'samee44',
+    cust_phn: 9936574125
+  }
+]
+eyeweardb> db.employee.find().pretty()
+[
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32c"),
+    emp_id: 100,
+    emp_fname: 'Rahul',
+    emp_lname: 'Singh',
+    emp_email: 'rahulsingh123@gmail.com',
+    emp_password: 'rahul44',
+    emp_phn: 9865723894,
+    emp_gender: 'Male',
+    emp_dob: '11-02-1995',
+    emp_hiredate: '14-08-2022',
+    emp_salary: 60000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32d"),
+    emp_id: 101,
+    emp_fname: 'Yash',
+    emp_lname: 'Shetty',
+    emp_email: 'yashshetty123@gmail.com',
+    emp_password: 'yashh44',
+    emp_phn: 9768246132,
+    emp_gender: 'Male',
+    emp_dob: '13-06-2003',
+    emp_hiredate: '26-08-2023',
+    emp_salary: 40000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32e"),
+    emp_id: 102,
+    emp_fname: 'Aditya',
+    emp_lname: 'Kapoor',
+    emp_email: 'adityakapoor123@gmail.com',
+    emp_password: 'aditya44',
+    emp_phn: 9687348729,
+    emp_gender: 'Male',
+    emp_dob: '21-11-1993',
+    emp_hiredate: '19-09-2022',
+    emp_salary: 80000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32f"),
+    emp_id: 103,
+    emp_fname: 'Seeta',
+    emp_lname: 'Mahalakshmi',
+    emp_email: 'seetam123@gmail.com',
+    emp_password: 'seeta44',
+    emp_phn: 9387624981,
+    emp_gender: 'Female',
+    emp_dob: '30-05-2000',
+    emp_hiredate: '06-12-2019',
+    emp_salary: 80000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d330"),
+    emp_id: 104,
+    emp_fname: 'Dimple',
+    emp_lname: 'Cheema',
+    emp_email: 'dimple123@gmail.com',
+    emp_password: 'dimple44',
+    emp_phn: 9675842113,
+    emp_gender: 'Female',
+    emp_dob: '01-12-1999',
+    emp_hiredate: '22-03-2022',
+    emp_salary: 60000
+  }
+]
+eyeweardb> db.appointment.insert([{"apptmt_id":04,"apptmt_date":"01-10-2023","apptmt_time":"04:00pm","apptmt_schedule":"completed","apptmt_loc":"Thane"}])
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId("651d851a3d3d25e7a4e4d341") }
+}
+eyeweardb> db.employee.find().pretty()
+[
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32c"),
+    emp_id: 100,
+    emp_fname: 'Rahul',
+    emp_lname: 'Singh',
+    emp_email: 'rahulsingh123@gmail.com',
+    emp_password: 'rahul44',
+    emp_phn: 9865723894,
+    emp_gender: 'Male',
+    emp_dob: '11-02-1995',
+    emp_hiredate: '14-08-2022',
+    emp_salary: 60000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32d"),
+    emp_id: 101,
+    emp_fname: 'Yash',
+    emp_lname: 'Shetty',
+    emp_email: 'yashshetty123@gmail.com',
+    emp_password: 'yashh44',
+    emp_phn: 9768246132,
+    emp_gender: 'Male',
+    emp_dob: '13-06-2003',
+    emp_hiredate: '26-08-2023',
+    emp_salary: 40000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32e"),
+    emp_id: 102,
+    emp_fname: 'Aditya',
+    emp_lname: 'Kapoor',
+    emp_email: 'adityakapoor123@gmail.com',
+    emp_password: 'aditya44',
+    emp_phn: 9687348729,
+    emp_gender: 'Male',
+    emp_dob: '21-11-1993',
+    emp_hiredate: '19-09-2022',
+    emp_salary: 80000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32f"),
+    emp_id: 103,
+    emp_fname: 'Seeta',
+    emp_lname: 'Mahalakshmi',
+    emp_email: 'seetam123@gmail.com',
+    emp_password: 'seeta44',
+    emp_phn: 9387624981,
+    emp_gender: 'Female',
+    emp_dob: '30-05-2000',
+    emp_hiredate: '06-12-2019',
+    emp_salary: 80000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d330"),
+    emp_id: 104,
+    emp_fname: 'Dimple',
+    emp_lname: 'Cheema',
+    emp_email: 'dimple123@gmail.com',
+    emp_password: 'dimple44',
+    emp_phn: 9675842113,
+    emp_gender: 'Female',
+    emp_dob: '01-12-1999',
+    emp_hiredate: '22-03-2022',
+    emp_salary: 60000
+  }
+]
+eyeweardb> db.appointment.find().pretty()
+[
+  {
+    _id: ObjectId("651d7c813d3d25e7a4e4d33b"),
+    apptmt_id: 1,
+    apptmt_date: '27-08-2023',
+    apptmt_time: '11:00am',
+    apptmt_schedule: 'completed',
+    apptmt_loc: 'Thane'
+  },
+  {
+    _id: ObjectId("651d7ca03d3d25e7a4e4d33c"),
+    apptmt_id: 2,
+    apptmt_date: '02-09-2023',
+    apptmt_time: '11:30am',
+    apptmt_schedule: 'scheduled',
+    apptmt_loc: 'Mumbai'
+  },
+  {
+    _id: ObjectId("651d7cad3d3d25e7a4e4d33d"),
+    apptmt_id: 3,
+    apptmt_date: '05-09-2023',
+    apptmt_time: '11:00am',
+    apptmt_schedule: 'scheduled',
+    apptmt_loc: 'Kalyan'
+  },
+  {
+    _id: ObjectId("651d851a3d3d25e7a4e4d341"),
+    apptmt_id: 4,
+    apptmt_date: '01-10-2023',
+    apptmt_time: '04:00pm',
+    apptmt_schedule: 'completed',
+    apptmt_loc: 'Thane'
+  }
+]
+eyeweardb> db,appointment.find({"apptmt_loc":{"$in":["Thane"]}})
+ReferenceError: appointment is not defined
+eyeweardb> db.appointment.find({"apptmt_loc":{"$in":["Thane"]}})
+[
+  {
+    _id: ObjectId("651d7c813d3d25e7a4e4d33b"),
+    apptmt_id: 1,
+    apptmt_date: '27-08-2023',
+    apptmt_time: '11:00am',
+    apptmt_schedule: 'completed',
+    apptmt_loc: 'Thane'
+  },
+  {
+    _id: ObjectId("651d851a3d3d25e7a4e4d341"),
+    apptmt_id: 4,
+    apptmt_date: '01-10-2023',
+    apptmt_time: '04:00pm',
+    apptmt_schedule: 'completed',
+    apptmt_loc: 'Thane'
+  }
+]
+eyeweardb> db.appointment.find({"apptmt_loc":{"$nin":["Thane"]}})
+[
+  {
+    _id: ObjectId("651d7ca03d3d25e7a4e4d33c"),
+    apptmt_id: 2,
+    apptmt_date: '02-09-2023',
+    apptmt_time: '11:30am',
+    apptmt_schedule: 'scheduled',
+    apptmt_loc: 'Mumbai'
+  },
+  {
+    _id: ObjectId("651d7cad3d3d25e7a4e4d33d"),
+    apptmt_id: 3,
+    apptmt_date: '05-09-2023',
+    apptmt_time: '11:00am',
+    apptmt_schedule: 'scheduled',
+    apptmt_loc: 'Kalyan'
+  }
+]
