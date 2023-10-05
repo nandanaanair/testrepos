@@ -1,0 +1,65 @@
+from pymongo import MongoClient
+import pprint
+#for connectivity
+client = MongoClient()
+client = MongoClient('localhost', 27017)
+#stores our database in db 
+db = client.eyeweardb
+print(db)           #check if connection is done
+#stores documents in customer collection of db in var collection
+collection = db.customer
+print(collection)           #check if connection is done
+#to print the documents of our collection
+for document in collection.find():
+    print(document)
+
+
+'''
+#update
+myquery = { 'cust_fname': 'Vaidehi' }
+newvalues = { "$set": { 'cust_fname': 'Vaidu' } }
+collection.update_one(myquery, newvalues)'''
+
+'''
+#delete
+myquery = {'cust_password': 'akshada44'}
+x = collection.delete_many(myquery)
+print(x.deleted_count, "documents deleted")
+'''
+'''
+    pprint.pprint(document)'''
+'''collection.delete_one({'name': 'Peter'})'''
+'''
+mydict = { "name": "Peter", "address": "Lowstreet 27" }
+
+#insert
+x = collection.insert_one(mydict)
+print(x)                       #prints the inserted document and the result showing inserted successfully
+print(x.inserted_id)     #prints the automatically assigned _id of the document
+
+Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'eyeweardb')
+Collection(Database(MongoClient(host=['localhost:27017'], document_class=dict, tz_aware=False, connect=True), 'eyeweardb'), 'customer')
+{'_id': ObjectId('64fa8b1e8c88f5cfed7c3976'), 'cust_id': 1.0, 'cust_fname': 'Sristi', 'cust_lname': 'Shetty', 'cust_email': 'sristis123@gmail.com', 'cust_password': 'sristi44', 'cust_phn': 9762846135.0}
+{'_id': ObjectId('64fa8bdf8c88f5cfed7c3977'), 'cust_id': 2.0, 'cust_fname': 'Vandana', 'cust_lname': 'Padhi', 'cust_email': 'vandana23@gmail.com', 'cust_password': 'vandana44', 'cust_phn': 9658742135.0}
+{'_id': ObjectId('64fa8c118c88f5cfed7c3978'), 'cust_id': 3.0, 'cust_fname': 'Vaidehi', 'cust_lname': 'Kelkar', 'cust_email': 'vaidehi123@gmail.com', 'cust_password': 'vaidehi44', 'cust_phn': 9647851254.0}
+{'_id': ObjectId('64fa8ca88c88f5cfed7c3979'), 'cust_id': 4.0, 'cust_fname': 'Akshada', 'cust_lname': 'Kadlak', 'cust_email': 'akshada123@gmail.com', 'cust_password': 'akshada44', 'cust_phn': 9687246351.0}
+{'_id': ObjectId('651e2c78db07d00344754e12'), 'name': 'Peter', 'address': 'Lowstreet 27'}
+{'_id': ObjectId('651e2c8fdb07d012b449779c'), 'name': 'Peter', 'address': 'Lowstreet 27'}
+{'_id': ObjectId('651e2cc0db07d01fdcd21cd4'), 'name': 'Peter', 'address': 'Lowstreet 27'}
+<pymongo.results.InsertOneResult object at 0x031CD0F8>
+651e2ce1db07d012b8622833
+{'_id': ObjectId('651e2ce1db07d012b8622833'), 'name': 'Peter', 'address': 'Lowstreet 27'}
+
+db.list_collection_names()      #prints all collections
+['appointment', 'employee', 'customer', 'product']
+
+
+
+
+'''
+
+
+
+
+
+
