@@ -13,6 +13,7 @@
 
             var pdata1=JSON.parse(jdata);
             var pdata2=JSON.parse(jdata2);
+            // var strdata2=JSON.stringify(jdata2);
             var pdatawRev=JSON.parse(jdata2,function(key,value)
             {
                 if(key=="age")
@@ -30,13 +31,20 @@
             document.getElementById("parsing").innerHTML+="Name : "+pdata2.name+"<br>";
             document.getElementById("parsing").innerHTML+="Age : "+pdata2.age+"<br>";
             document.getElementById("parsing").innerHTML+="Country : "+pdata2.country+"<br>";
-
             document.getElementById("parsing").innerHTML+="MY name is : "+pdata1.name +" and my brother's name is "+pdata2.name;
-
-            
             document.getElementById("parsing").innerHTML+="<br>"+pdatawRev.age+" is the age.";
+            // document.getElementById("parsing").innerHTML="Name : "+strdata2.name+"<br>";
+            // localStorage.setItem("testJSON", strdata2);
         </script>
     
+    </div>
+    <div id="stringu">
+        <script>
+            var jsondata={"name":"nandu","age":20};
+            var strdata=JSON.stringify(jsondata);
+
+            document.getElementById("stringu").innerHTML=strdata;
+        </script>
     </div>
 </body>
 </html>
