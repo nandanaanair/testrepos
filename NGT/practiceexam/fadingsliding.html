@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            background-color: rgb(231, 189, 189);
+        }
+        #fwd,#swd
+        {
+            text-align: center;
+            background-color: brown;
+            padding: 5%;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        
+        <button id="fo"> FADE OUT </button><br><br>
+        <button id="fi"> FADE IN </button><br><br>
+        <div id="fwd">
+            FADE WALA DABBA
+        </div>
+        <button id="su"> SLIDE UP </button><br><br>
+        <button id="sd"> SLIDE DOWN </button><br><br>
+        <div id="swd">
+            SLIDE WALA DABBA
+        </div>
+    </form>
+
+
+    <script>
+        $(document).ready(function()
+        {
+            $("#fo").click(function()
+            {
+                event.preventDefault();
+                $("#fwd").fadeOut(1000);
+            });
+
+            $("#fi").click(function()
+            {
+                event.preventDefault();
+                $("#fwd").fadeIn(1000);
+            });
+            $("#su").click(function()
+            {
+                event.preventDefault();
+                $("#swd").slideUp(1000);
+            });
+
+            $("#sd").click(function()
+            {
+                event.preventDefault();
+                $("#swd").slideDown(1000);
+            });
+        });
+    </script>
+</body>
+</html>

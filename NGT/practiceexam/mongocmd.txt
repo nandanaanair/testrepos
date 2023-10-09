@@ -1,0 +1,39 @@
+C:\Program Files\MongoDB\Tools\100\bin>mongoimport --host localhost --db detailsdb --collection sample --type json --file C:\Users\91976\details.json --jsonArray
+//cmd
+2023-10-09T17:59:54.777+0530    connected to: mongodb://localhost/
+2023-10-09T17:59:54.839+0530    2 document(s) imported successfully. 0 document(s) failed to import.
+
+
+
+C:\Program Files\MongoDB\Tools\100\bin>mongoexport --host localhost --db detailsdb --collection sample --type json --out "C:\Users\91976\OneDrive\Desktop\TYIT SEM-5\NGT\nan\sample.json"
+//cmd
+2023-10-09T18:02:37.172+0530    connected to: mongodb://localhost/
+2023-10-09T18:02:37.287+0530    exported 2 records
+
+
+
+C:\Program Files\MongoDB\Tools\100\bin>mongodump --host localhost --db detailsdb --out "C:\Users\91976\OneDrive\Desktop\TYIT SEM-5\NGT"
+//cmd
+2023-10-09T18:05:50.774+0530    writing detailsdb.sample to C:\Users\91976\OneDrive\Desktop\TYIT SEM-5\NGT\detailsdb\sample.bson
+2023-10-09T18:05:50.872+0530    writing detailsdb.Student Details to C:\Users\91976\OneDrive\Desktop\TYIT SEM-5\NGT\detailsdb\Student+Details.bson
+2023-10-09T18:05:50.872+0530    done dumping detailsdb.sample (2 documents)
+2023-10-09T18:05:50.886+0530    done dumping detailsdb.Student Details (0 documents)
+
+
+
+C:\Program Files\MongoDB\Tools\100\bin>mongorestore --host localhost --db sampledb "C:\Users\91976\OneDrive\Desktop\TYIT SEM-5\NGT\detailsdb"
+//cmd
+2023-10-09T18:06:45.120+0530    The --db and --collection flags are deprecated for this use-case; please use --nsInclude instead, i.e. with --nsInclude=${DATABASE}.${COLLECTION}
+2023-10-09T18:06:45.124+0530    building a list of collections to restore from C:\Users\91976\OneDrive\Desktop\TYIT SEM-5\NGT\detailsdb dir
+2023-10-09T18:06:45.131+0530    reading metadata for sampledb.sample from C:\Users\91976\OneDrive\Desktop\TYIT SEM-5\NGT\detailsdb\sample.metadata.json
+2023-10-09T18:06:45.132+0530    reading metadata for sampledb.Student Details from C:\Users\91976\OneDrive\Desktop\TYIT SEM-5\NGT\detailsdb\Student+Details.metadata.json
+2023-10-09T18:06:45.302+0530    restoring sampledb.sample from C:\Users\91976\OneDrive\Desktop\TYIT SEM-5\NGT\detailsdb\sample.bson
+2023-10-09T18:06:45.444+0530    restoring sampledb.Student Details from C:\Users\91976\OneDrive\Desktop\TYIT SEM-5\NGT\detailsdb\Student+Details.bson
+2023-10-09T18:06:45.466+0530    finished restoring sampledb.sample (2 documents, 0 failures)
+2023-10-09T18:06:45.466+0530    finished restoring sampledb.Student Details (0 documents, 0 failures)
+2023-10-09T18:06:45.467+0530    no indexes to restore for collection sampledb.Student Details
+2023-10-09T18:06:45.467+0530    no indexes to restore for collection sampledb.sample
+2023-10-09T18:06:45.470+0530    2 document(s) restored successfully. 0 document(s) failed to restore.
+
+
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EVENTS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body
+        {
+            background-color: burlywood;
+        }
+        div
+        {
+            background-color:brown;
+            color: bisque;
+            font-size:xx-large;
+            text-align: center;
+            padding: 05%;
+        }
+    </style>
+</head>
+<body>
+  
+  <h2>WELCOME TO MY PAGE</h2>
+    <form> 
+        First Name : <input type="text" name="fname"> <br><br>
+        Last Name : <input type="text" name="lname"> <br><br>
+        <button id="submitform"> Submit </button> <br><br>
+        Enter any text : <input id="viewtext" type="text" name="displaying"> <br><br>
+        <button id="chngclr"> Click to change bg color </button>
+        <button id="chngclr2"> Double click to change bg color </button>
+        <p id="idhr"> </p>
+        <div id="magicc">
+            THE MAGIC TEXT
+        </div>
+        <div id="magicc2">
+            REAL MAGIC
+        </div><br><br>
+        <button id="chupao">HIDE</button>
+        <button id="dikhao">SHOW</button>
+        
+    </form>
+
+    <script>
+        $(document).ready(function()
+        {
+            $("input").focus(function()
+            {
+                $(this).css("background-color","yellow")
+            });
+
+            $("input").blur(function()
+            {
+                $(this).css("background-color","white")
+            });
+
+            $("#submitform").click(function()
+            {
+                alert("Form submitted succesfully")
+            });
+
+            $("#chngclr").click(function()
+            {
+                event.preventDefault();
+                $("body").css("background-color","rgb(187, 123, 38)")
+            });
+
+            $("#chngclr2").dblclick(function()
+            {
+                event.preventDefault();
+                $("body").css("background-color","burlywood")
+            });
+
+            $("#viewtext").keypress(function(event)
+            {
+                var yedekho=event.key;
+                $("#idhr").text("The key pressed is : "+yedekho)
+            })
+
+            $("#magicc").mouseenter(function()
+            {
+                $("#magicc").text("DEKHAAA KYA MAGIC???")
+            })
+
+            $("#magicc").mouseleave(function()
+            {
+                $("#magicc").text("THE MAGIC TEXT")
+            })
+
+            $("#chupao").click(function()
+            {
+                event.preventDefault();
+                $("#magicc2").hide(1000)
+            })
+
+            $("#dikhao").click(function()
+            {
+                event.preventDefault();
+                $("#magicc2").show(1000)
+            })
+        })
+
+
+    </script>
+</body>
+</html>

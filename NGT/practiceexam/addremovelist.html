@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ADD REMOVE</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    
+    Courses: 
+    <ul id="dalonikalo">
+        <li>BSCIT</li>
+    </ul>
+    <form>
+        Enter to add: <input id="addcontent" type="text" name="dalneko">
+        <button id="addb"> ADD </button>
+        <button id="remb"> REMOVE </button>
+    </form>
+
+    <script>
+        $(document).ready(function()
+        {
+            var additems=[];
+            $("#addb").click(function()
+            {
+                
+                event.preventDefault();
+                var text=$("input").val();
+                if (text)
+                {
+                    var newitem=$("<li>"+text+"</li>")
+                    $("#dalonikalo").append(newitem);
+                    additems.push(newitem);
+                }
+            })
+            $("#remb").click(function()
+            {
+                event.preventDefault();
+                if (additems.length>0)
+                {
+                    var removeitems=additems.pop();
+                    removeitems.remove();
+                }
+            })
+        })
+    </script>
+</body>
+</html>

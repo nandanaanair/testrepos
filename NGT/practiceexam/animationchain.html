@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            background-color: rgb(231, 189, 189);
+        }
+        #magic1,#magic2
+        {
+            text-align: center;
+            background-color: brown;
+            padding: 5%;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <button id="anim">Animate</button>
+        <div id="magic1"> ANIMATE TEXT</div>
+        <button id="chain">Chaining</button>
+        <div id="magic2"> CHAIN TEXT</div>
+    </form>
+    <script>
+        $(document).ready(function()
+        {
+            $("#anim").click(function()
+            {
+                event.preventDefault();
+                $("#magic1").animate({width:'500px',height:'500px',fontSize:'50px'},3000);
+            });
+
+            $("#chain").click(function()
+            {
+                event.preventDefault();
+                $("#magic2").slideUp(3000).slideDown(3000);
+            });
+        });
+    </script>
+</body>
+</html>

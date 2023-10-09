@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get and set</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <form>
+        Enter a text: <input id="inputtext" type="text" name="thistext">
+        <button id="sc">Set Content</button>
+        <button id="gc">Get Content</button><br>
+        <div id="setcontent">INITIAL CONTENT </div>
+    </form>
+    <script>
+        $(document).ready(function()
+        {
+            $("#gc").click(function()
+            {
+                event.preventDefault();
+                var contentone=$("#setcontent").text();
+                alert("The content is : "+contentone);
+            });
+
+            $("#sc").click(function()
+            {
+                event.preventDefault();
+                var contenttwo=$("#inputtext").val();
+                $("#setcontent").text(contenttwo);
+            });
+        });
+    </script>
+</body>
+</html>

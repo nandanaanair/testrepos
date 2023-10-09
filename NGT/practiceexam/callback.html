@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"> </script>
+</head>
+<body>
+    <button id="callbackbutton">Callback</button>
+    <div id="aftercb"> This text will hide and a callback alert will pop up</div>
+    <script>
+        $(document).ready(function()
+        {
+            $("#callbackbutton").click(function()
+            {
+                $("#aftercb").hide(1500,function(){
+                    alert("The content is hidden successfully!!");
+                });
+                
+            });
+        });
+    </script>
+</body>
+</html>
