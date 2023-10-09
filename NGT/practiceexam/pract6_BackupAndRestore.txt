@@ -1,0 +1,22 @@
+//backup dump
+
+C:\WINDOWS\system32>cd C:\Program Files\MongoDB\Tools\100\bin
+
+C:\Program Files\MongoDB\Tools\100\bin>mongodump --host localhost --db eyeweardb --out "C:\Program Files\Dump"
+2023-10-04T23:29:58.128+0530    writing eyeweardb.employee to C:\Program Files\Dump\eyeweardb\employee.bson
+2023-10-04T23:29:58.131+0530    writing eyeweardb.product to C:\Program Files\Dump\eyeweardb\product.bson
+2023-10-04T23:29:58.131+0530    writing eyeweardb.customer to C:\Program Files\Dump\eyeweardb\customer.bson
+2023-10-04T23:29:58.256+0530    writing eyeweardb.appointment to C:\Program Files\Dump\eyeweardb\appointment.bson
+2023-10-04T23:29:58.258+0530    done dumping eyeweardb.employee (5 documents)
+2023-10-04T23:29:58.258+0530    done dumping eyeweardb.product (3 documents)
+2023-10-04T23:29:58.259+0530    done dumping eyeweardb.customer (5 documents)
+2023-10-04T23:29:58.260+0530    done dumping eyeweardb.appointment (4 documents)
+
+
+//restore
+
+C:\Program Files\MongoDB\Tools\100\bin>mongorestore --host localhost --db eyeweardb "C:\Program Files\Dump"
+2023-10-04T23:31:22.918+0530    The --db and --collection flags are deprecated for this use-case; please use --nsInclude instead, i.e. with --nsInclude=${DATABASE}.${COLLECTION}
+2023-10-04T23:31:22.922+0530    building a list of collections to restore from C:\Program Files\Dump dir
+2023-10-04T23:31:22.923+0530    don't know what to do with subdirectory "Dump\eyeweardb", skipping...
+2023-10-04T23:31:22.924+0530    0 document(s) restored successfully. 0 document(s) failed to restore.

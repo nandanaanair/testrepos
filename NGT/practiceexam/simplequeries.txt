@@ -1,0 +1,192 @@
+simple queries:
+
+1. Employees having below than 80000 salary
+eyeweardb> db.employee.find({"emp_salary":{"$lt":80000}})
+[
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32c"),
+    emp_id: 100,
+    emp_fname: 'Rahul',
+    emp_lname: 'Singh',
+    emp_email: 'rahulsingh123@gmail.com',
+    emp_password: 'rahul44',
+    emp_phn: 9865723894,
+    emp_gender: 'Male',
+    emp_dob: '11-02-1995',
+    emp_hiredate: '14-08-2022',
+    emp_salary: 60000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32d"),
+    emp_id: 101,
+    emp_fname: 'Yash',
+    emp_lname: 'Shetty',
+    emp_email: 'yashshetty123@gmail.com',
+    emp_password: 'yashh44',
+    emp_phn: 9768246132,
+    emp_gender: 'Male',
+    emp_dob: '13-06-2003',
+    emp_hiredate: '26-08-2023',
+    emp_salary: 40000
+  },
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d330"),
+    emp_id: 104,
+    emp_fname: 'Dimple',
+    emp_lname: 'Cheema',
+    emp_email: 'dimple123@gmail.com',
+    emp_password: 'dimple44',
+    emp_phn: 9675842113,
+    emp_gender: 'Female',
+    emp_dob: '01-12-1999',
+    emp_hiredate: '22-03-2022',
+    emp_salary: 60000
+  }
+]
+
+2. Employees having below or equal to 40000 salary
+eyeweardb> db.employee.find({"emp_salary":{"$lte":40000}})
+[
+  {
+    _id: ObjectId("651d7bd53d3d25e7a4e4d32d"),
+    emp_id: 101,
+    emp_fname: 'Yash',
+    emp_lname: 'Shetty',
+    emp_email: 'yashshetty123@gmail.com',
+    emp_password: 'yashh44',
+    emp_phn: 9768246132,
+    emp_gender: 'Male',
+    emp_dob: '13-06-2003',
+    emp_hiredate: '26-08-2023',
+    emp_salary: 40000
+  }
+]
+
+3. Products having their price exceeding 1000
+eyeweardb> db.product.find({"prod_price":{"$gt":1000}})
+[
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d33e"),
+    prod_id: 1000,
+    prod_name: 'Hooper glasses',
+    prod_description: 'Hooper glasses is made with light weight frames and comfy nose pads.',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: 1700,
+    prod_brand: 'Hooper',
+    prod_color: 'black'
+  }
+]
+
+4. Products having their price exceeding or is equal to 1000
+eyeweardb> db.product.find({"prod_price":{"$gte":700}})
+[
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d33e"),
+    prod_id: 1000,
+    prod_name: 'Hooper glasses',
+    prod_description: 'Hooper glasses is made with light weight frames and comfy nose pads.',
+    prod_frametype: 'Round',
+    prod_category: 'Eyeglasses',
+    prod_price: 1700,
+    prod_brand: 'Hooper',
+    prod_color: 'black'
+  },
+  {
+    _id: ObjectId("651d83143d3d25e7a4e4d33f"),
+    prod_id: 1001,
+    prod_name: 'JJ half rim',
+    prod_description: 'John Jacobs screenglasses relieves eye strain and reduces headache by guaranting UV protection.',
+    prod_frametype: 'Half rim',
+    prod_category: 'Screenglasses',
+    prod_price: 900,
+    prod_brand: 'John Jacobs',
+    prod_color: 'white'
+  }
+]
+
+5. Find all the appointments scheduled in thane
+eyeweardb> db.appointment.find({"apptmt_loc":{"$in":["Thane"]}})
+[
+  {
+    _id: ObjectId("651d7c813d3d25e7a4e4d33b"),
+    apptmt_id: 1,
+    apptmt_date: '27-08-2023',
+    apptmt_time: '11:00am',
+    apptmt_schedule: 'completed',
+    apptmt_loc: 'Thane'
+  },
+  {
+    _id: ObjectId("651d851a3d3d25e7a4e4d341"),
+    apptmt_id: 4,
+    apptmt_date: '01-10-2023',
+    apptmt_time: '04:00pm',
+    apptmt_schedule: 'completed',
+    apptmt_loc: 'Thane'
+  }
+]
+
+6. Find all the appointments scheduled in other than thane
+eyeweardb> db.appointment.find({"apptmt_loc":{"$nin":["Thane"]}})
+[
+  {
+    _id: ObjectId("651d7ca03d3d25e7a4e4d33c"),
+    apptmt_id: 2,
+    apptmt_date: '02-09-2023',
+    apptmt_time: '11:30am',
+    apptmt_schedule: 'scheduled',
+    apptmt_loc: 'Mumbai'
+  },
+  {
+    _id: ObjectId("651d7cad3d3d25e7a4e4d33d"),
+    apptmt_id: 3,
+    apptmt_date: '05-09-2023',
+    apptmt_time: '11:00am',
+    apptmt_schedule: 'scheduled',
+    apptmt_loc: 'Kalyan'
+  }
+]
+
+
+//sum
+eyeweardb> db.product.aggregate([{$group:{_id:"$prod_name",total:{$sum:"$prod_price"}}}])
+[
+  { _id: 'Hooper glasses', total: 1700 },
+  { _id: 'VC sunglasses', total: 550 },
+  { _id: 'JJ half rim', total: 900 }
+]
+
+//avg
+eyeweardb> db.product.aggregate([{$group:{_id:"$prod_name",average:{$avg:"$prod_price"}}}])
+[
+  { _id: 'Hooper glasses', average: 1700 },
+  { _id: 'JJ half rim', average: 900 },
+  { _id: 'VC sunglasses', average: 550 }
+]
+
+//min
+eyeweardb> db.product.aggregate([{$group:{_id:"$prod_name",minimum:{$min:"$prod_price"}}}])
+[
+  { _id: 'Hooper glasses', minimum: 1700 },
+  { _id: 'VC sunglasses', minimum: 550 },
+  { _id: 'JJ half rim', minimum: 900 }
+]
+
+//max
+eyeweardb> db.product.aggregate([{$group:{_id:"$prod_name",maximum:{$max:"$prod_price"}}}])
+[
+  { _id: 'JJ half rim', maximum: 900 },
+  { _id: 'Hooper glasses', maximum: 1700 },
+  { _id: 'VC sunglasses', maximum: 550 }
+]
+
+//actual
+
+eyeweardb> db.product.aggregate([{$group:{_id:null,total_price:{"$sum":"$prod_price"}}}])
+[ { _id: null, total_price: 3150 } ]
+eyeweardb> db.product.aggregate([{$group:{_id:null,cheapest:{"$min":"$prod_price"}}}])
+[ { _id: null, cheapest: 550 } ]
+eyeweardb> db.product.aggregate([{$group:{_id:null,expensive:{"$max":"$prod_price"}}}])
+[ { _id: null, expensive: 1700 } ]
+eyeweardb> db.product.aggregate([{$group:{_id:null,average_price:{"$avg":"$prod_price"}}}])
+[ { _id: null, average_price: 1050 } ]

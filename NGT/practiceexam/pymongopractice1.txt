@@ -1,0 +1,39 @@
+from pymongo import MongoClient
+import pprint
+client=MongoClient()
+
+mydb=client.nandb
+mycollection=mydb.customer
+
+'''for i in mycollection.find():
+    pprint.pprint(i)'''
+'''
+sampledoc={"name":"nandana","age":"20"}
+mycollection.insert_one(sampledoc)
+for i in mycollection.find():
+    pprint.pprint(i)'''
+'''
+sampledoc = [
+   {"_id": "101", "name": "Ram", "age": "26", "city": "Hyderabad"},
+   {"_id": "102", "name": "Rahim", "age": "27", "city": "Bangalore"},
+   {"_id": "103", "name": "Robert", "age": "28", "city": "Mumbai"}
+]
+mycollection.insert_many(sampledoc)'''
+'''
+delDoc={"name":"nandana"}
+mycollection.delete_one(delDoc)'''
+'''
+delDoc={"name":"nandana"}
+mycollection.delete_many(delDoc)'''
+
+'''ageLt=mycollection.find({"age":{"$gt":"20"}})
+for i in ageLt:
+    pprint.pprint(i)'''
+
+'''mycollection.update_one({"name":"Robert"},{"$set":{"age":"29"}})'''
+
+for i in mycollection.find().sort("age",-1):
+    pprint.pprint(i)
+
+'''collections.find({age:1})'''
+            
