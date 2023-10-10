@@ -190,3 +190,8 @@ eyeweardb> db.product.aggregate([{$group:{_id:null,expensive:{"$max":"$prod_pric
 [ { _id: null, expensive: 1700 } ]
 eyeweardb> db.product.aggregate([{$group:{_id:null,average_price:{"$avg":"$prod_price"}}}])
 [ { _id: null, average_price: 1050 } ]
+
+eyeweardb> db.product.find({prod_price:{$not:{$lt:500}}})
+eyeweardb> db.customer.find({$nor:[{"cust_fname":"Akshada"}]})
+eyeweardb> db.customer.find({$or:[{"cust_fname":"Akshada"},{"cust_lname":"Kadam"}]})
+eyeweardb> db.customer.find({$and:[{"cust_fname":"Akshada"},{"cust_lname":"Kadlak"}]})
